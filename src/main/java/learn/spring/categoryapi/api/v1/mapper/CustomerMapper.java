@@ -13,7 +13,14 @@ public interface CustomerMapper {
 
     @Mappings({
             @Mapping(source = "firstName", target = "firstname"),
-            @Mapping(source = "lastName", target = "lastname")
+            @Mapping(source = "lastName", target = "lastname"),
+            @Mapping(target = "customerUrl", ignore = true)
     })
     CustomerDTO customerToCustomerDTO(Customer customer);
+
+    @Mappings({
+            @Mapping(source = "firstname", target = "firstName"),
+            @Mapping(source = "lastname", target = "lastName"),
+    })
+    Customer customerDTOToCustomer(CustomerDTO customerDTO);
 }
